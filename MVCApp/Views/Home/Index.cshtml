@@ -16,23 +16,11 @@
     <title>@ViewData["Titre"] - Accueil</title>
 </head>
 <body>
-    @if (ViewData.ContainsKey("SuccessMessage"))
-    {
-        <div>
-            @ViewBag.SuccessMessage
-        </div>
-    }
-
     <header>
         <h1>Technofutur TIC</h1>
         <h2>Liens</h2>
         <h2>
-            @if (TempData["SuccessMessage"] is not null)
-            {
-                <div style="background-color:forestgreen; padding : 15px; border : 2px solid forestgreen ; color : forestgreen ; border-radius : 15px; text-align : center;">
-                    <p>@TempData["SuccessMessage"]</p>
-                </div>
-            }
+            
         </h2>
         <p>@ViewData["Titre"]</p>
         
@@ -51,6 +39,12 @@
     </header>
     <main>
         <section>
+            @if (TempData.ContainsKey("SuccessMessage"))
+            {
+                <div style="background-color:rgb(128,255,128); padding : 15px; border : 2px solid rgb(0,64,0); color : rgb(0,64,0); border-radius : 15px; text-align : center;">
+                    <p>@TempData["SuccessMessage"]</p>
+                </div>
+            }
             <h1>Bienvenu(e) sur Technofutur TIC</h1>
             <p>Hello! Et bienvenu(e) sur le site de TechnoFuturTic. Vous pouvez vous enregistrer, vous connecter à votre compte, ou encore nous contacter :)</p>
         </section>

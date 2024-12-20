@@ -26,14 +26,14 @@
             <h1>Vous connecter?</h1>
             @if (TempData.ContainsKey("message"))
             {
-                <div>
+                <div style="background-color:rgb(128,255,128); padding : 15px; border : 2px solid rgb(0,64,0); color : rgb(0,64,0); border-radius : 15px; text-align : center;">
                     <p>@TempData["message"]</p>
                 </div>
             }
             @if (ViewData.ContainsKey("ErrorMessage"))
             {
-                <div style="background-color:red; padding : 15px; border : 2px solid darkred (64,0,0); color : darkred (64,0,0); border-radius : 15px; text-align : center;">
-                    @ViewBag.ErrorMessage
+                <div style="background-color:rgb(255,128,128); padding : 15px; border : 2px solid rgb(64,0,0); color : rgb(64,0,0); border-radius : 15px; text-align : center;">
+                    <p>@ViewBag.ErrorMessage</p>
                 </div>
             }
             

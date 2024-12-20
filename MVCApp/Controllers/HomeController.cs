@@ -12,7 +12,7 @@ namespace MVCApp.Controllers
         public IActionResult Index()
         {
             Titre = "Technofutur Tic";
-            ViewBag.SuccessMessage = TempData["SuccessMessage"]; //tempdata est pour une redirection tandis que viewdata est pour la vue actuelle
+             
             return View();
         }
         

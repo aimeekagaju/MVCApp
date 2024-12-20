@@ -25,19 +25,19 @@ namespace MVCApp.Handlers.Validations
                 throw new ArgumentException(nameof(maxcharacters));
             }
             
-            if (formfield is not null && (formfield.Length < mincharacters || formfield.Length > maxcharacters))
+            if (!(formfield is null) && (formfield.Length < mincharacters || formfield.Length > maxcharacters))
             {
                 modelState.AddModelError(fieldname, $"Les caractères du champs{fieldname} ne sont pas compris entre {mincharacters} et {maxcharacters}");
             }
             return modelState;
         }
 
-        public static ModelStateDictionary ValidatePassword(this ModelStateDictionary modelState, string formPassword, string password, string pattern)
+        public static ModelStateDictionary ValidatePassword(this ModelStateDictionary modelState, string formfield, string fieldname)
         {
             
-            if (!Regex.IsMatch(password, pattern))
+            if (!(formfield is null) && !Regex.IsMatch(formfield, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[&@#\-+*!?%~/\\<>\(\)]).+$"))
             {
-                modelState.AddModelError(formPassword, "Le mot de passe doit contenir au moins : une lettre minuscule, une lettre majuscule, un chiffre, et un caractère spécial (&@#-+*!?%~/\\<>).");
+                modelState.AddModelError(fieldname, "Le mot de passe doit contenir au moins : une lettre minuscule, une lettre majuscule, un chiffre, et un caractère spécial (&@#-+*!?%~/\\<>).");
             }
 
             return modelState;

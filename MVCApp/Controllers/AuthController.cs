@@ -44,12 +44,12 @@ namespace MVCApp.Controllers
                 .ValidateRequired(form.Password, nameof(form.Password))
                 .ValidateLength(form.Email, nameof(form.Email), 3, 320)
                 .ValidateLength(form.Password, nameof(form.Password), 8, 32)
-                .ValidatePassword(form.Password, nameof(form.Password), @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[&@#\-+*!?%~/\\<>\(\)]).+$");
+                .ValidatePassword(form.Password, nameof(form.Password));
 
             if(ModelState.IsValid)
             {
-                TempData["SuccessMessage"] = "Vous êtes connectés!";
-                return RedirectToAction("Index", "Home");
+                TempData["SuccessMessage"] = "Vous êtes connectés!"; //tempdata est pour une redirection tandis que viewdata est pour la vue actuelle
+                return RedirectToAction(nameof(Index), "Home");
             }
             else
             {
