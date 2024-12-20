@@ -1,0 +1,59 @@
+﻿﻿
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - S'enregister</title>
+</head>
+<body>
+    <header>
+        <h1>Technofutur TIC</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/Register">S'enregistrer</a></li>
+                <li><a href="/Login">Se connecter</a></li>
+                <li><a href="/Home/Contact">Nous contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Vous enregistrer?</h1>
+            <form method="post">
+                <div>
+                    <label for="firstname">Prénom : </label>
+                    <input type="text" id="firstname" name="firstname">
+                </div>
+                <div>
+                    <label for="lastname">Nom de famille : </label>
+                    <input type="text" id="lastname" name="lastname">
+                </div>
+                <div>
+                    <label for="birthdate">Date de naissance : </label>
+                    <input type="date" id="birthdate" name="birthdate">
+                </div>
+                <div>
+                    <label for="email">Courriel : </label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label for="password">Mot de passe : </label>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div>
+                    <label for="confirmPassword">Veuillez confirmer le mot de passe : </label>
+                    <input type="password" id="confirmPassword" name="confirmPassword">
+                </div>
+                <div>
+                    <button type="submit">Valider</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Technofutur TIC - 2024/2025</p>
+    </footer>
+</body>
+</html>

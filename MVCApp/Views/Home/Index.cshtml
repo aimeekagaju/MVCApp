@@ -1,0 +1,62 @@
+﻿@{
+    
+    Dictionary<string, string> links = new Dictionary<string, string>()
+        {
+            {"Acceuil", "/"},
+            {"S'enregistrer", "/Register"},
+            {"Se connecter", "/Login"},
+            {"Nous contacter", "/Home/Contact"}
+        };
+}﻿
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Titre"] - Accueil</title>
+</head>
+<body>
+    @if (ViewData.ContainsKey("SuccessMessage"))
+    {
+        <div>
+            @ViewBag.SuccessMessage
+        </div>
+    }
+
+    <header>
+        <h1>Technofutur TIC</h1>
+        <h2>Liens</h2>
+        <h2>
+            @if (TempData["SuccessMessage"] is not null)
+            {
+                <div style="background-color:forestgreen; padding : 15px; border : 2px solid forestgreen ; color : forestgreen ; border-radius : 15px; text-align : center;">
+                    <p>@TempData["SuccessMessage"]</p>
+                </div>
+            }
+        </h2>
+        <p>@ViewData["Titre"]</p>
+        
+            <nav>
+            <ul>
+                @* <li><a href="/">Accueil</a></li>
+                <li><a href="/Register">S'enregistrer</a></li>
+                <li><a href="/Login">Se connecter</a></li>
+                <li><a href="/Home/Contact">Nous contacter</a></li> *@
+                @foreach (KeyValuePair<string, string> link in links)
+                {
+                    <li><a href="@link.Value">@link.Key</a></li>
+                }
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Bienvenu(e) sur Technofutur TIC</h1>
+            <p>Hello! Et bienvenu(e) sur le site de TechnoFuturTic. Vous pouvez vous enregistrer, vous connecter à votre compte, ou encore nous contacter :)</p>
+        </section>
+    </main>
+    <footer>
+        <p>Technofutur TIC - 2024/2025</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿@using MVCApp.Models;
+@model AddressPhoneList;
+
+@{
+    string address = "L'adresse est : Av. Jean Mermoz 18, 6041 Charleroi";
+    string tel = "071 25 49 60";
+}﻿
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Nous contacter</title>
+</head>
+<body>
+    
+    <header>
+        <h1>Technofutur TIC</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/Register">S'enregistrer</a></li>
+                <li><a href="/Login">Se connecter</a></li>
+                <li><a href="/Home/Contact">Nous contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Nous Contacter</h1>
+            <address>
+                <p><strong>Street:</strong> @Model.Address.Street</p>
+                <p><strong>Number:</strong> @Model.Address.Number</p>
+                <p><strong>ZipCode:</strong> @Model.Address.ZipCode</p>
+                <p><strong>City:</strong> @Model.Address.City</p>
+                <p><strong>Country:</strong> @Model.Address.Country</p>
+            </address>
+            <a href="tel:@(Model.Phone.International+Model.Phone.Number.Replace(" ","").Substring(1))">@Model.Phone.Number</a>
+        </section>
+    </main>
+    <footer>
+        <p>Technofutur TIC - 2024/2025</p>
+    </footer>
+</body>
+</html>

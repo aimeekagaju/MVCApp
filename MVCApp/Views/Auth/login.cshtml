@@ -1,0 +1,60 @@
+﻿@model MVCApp.Models.LoginForm
+
+﻿
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - Se connecter</title>
+</head>
+<body>
+    <header>
+        <h1>Technofutur TIC</h1>
+        
+        <nav>
+            <ul>
+                <li><a href="/">Accueil</a></li>
+                <li><a href="/Register">S'enregistrer</a></li>
+                <li><a href="/Login">Se connecter</a></li>
+                <li><a href="/Home/Contact">Nous contacter</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h1>Vous connecter?</h1>
+            @if (TempData.ContainsKey("message"))
+            {
+                <div>
+                    <p>@TempData["message"]</p>
+                </div>
+            }
+            @if (ViewData.ContainsKey("ErrorMessage"))
+            {
+                <div style="background-color:red; padding : 15px; border : 2px solid darkred (64,0,0); color : darkred (64,0,0); border-radius : 15px; text-align : center;">
+                    @ViewBag.ErrorMessage
+                </div>
+            }
+            
+            <form method="post">
+                <div>
+                    <label for="email">Courriel : </label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div>
+                    <label for="password">Mot de passe : </label>
+                    <input type="password" id="password" name="password">
+                </div>
+                
+                <div>
+                    <button type="submit">Se connecter</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>Technofutur TIC - 2024/2025</p>
+    </footer>
+</body>
+</html>
